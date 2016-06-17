@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html><head>
+  <title>WebGL Path Tracing</title>
+  <style type="text/css"><!--
+
+body {
+  max-width: 900px;
+  padding: 30px;
+  margin: 0 auto;
+  font: 14px/19px 'Lucida Grande', sans-serif;
+}
+
+#main {
+  margin: 80px 0;
+  padding-left: 542px;
+  height: 512px;
+  position: relative;
+}
+
+#error {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 412px;
+  height: 412px;
+  padding: 50px;
+  text-align: center;
+  background: #DFDFDF;
+}
+
+canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+p, ul {
+  margin: 0 0 30px 0;
+}
+
+h1 {
+  font: bold italic 50px Georgia;
+  margin: 0 0 60px 0;
+  text-align: center;
+}
+
+a {
+  color: inherit;
+}
+
+#footer {
+  text-align: center;
+  margin: 100px 0 0 0;
+}
+
+#glossiness-factor {
+  display: none;
+  font-size: 12px;
+}
+
+#glossiness-factor input {
+  width: 40px;
+  text-align: center;
+}
+
+  --></style>
+  <script type="text/javascript" src="sylvester.src.js"></script>
+  <script type="text/javascript" src="glUtils.js"></script>
+  <script type="text/javascript" src="webgl-path-tracing.js"></script>
+</head><body>
+  <h1>Room Escape</h1>
+
+  <div id="main">
+    <canvas id="canvas" width="512" height="512"></canvas>
+    <div id="error"><noscript>Please enable JavaScript.</noscript></div>
+    
+    <p><b>Attempt to open the door and escape :)</b></p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <b>Controls:</b>
+    <br>
+    <br>
+    <li>Left Click to Interact.</li>
+    <br>
+    <li>Move Camera with WASD or Arrow Keys.</li>
+    <br>
+    <li>Zoom in with E, Zoom out with Q.</li>
+    <br><br><br><br><br><br><br><br><br><br><br>(Hint: pin is 4-digit)
+    
+
+    <p hidden>
+      <button onclick="javascript:ui.selectLight()">Select Light</button>
+      <button onclick="javascript:ui.addSphere()">Add Sphere</button>
+      <button onclick="javascript:ui.addCube()">Add Cube</button>
+    </p>
+
+    <p hidden>
+      <b>Material:</b>
+      <select id="material">
+        <option value="0" selected>Diffuse</option>
+        <option value="1">Mirror</option>
+        <option value="2">Glossy</option>
+      </select>
+      <span id="glossiness-factor">
+        <br>with glossiness factor: 0 &lt; <input id="glossiness" value="0.6"> &lt; 1
+      </span>
+      <br>
+
+      <b>Environment:</b>
+      <select id="environment">
+        <option value="0" selected>Cornell Box - Yellow and Blue</option>
+        <option value="1">Cornell Box - Red and Green</option>
+      </select>
+    </p>
+  </div>
+</body></html>
